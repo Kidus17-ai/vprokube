@@ -3,13 +3,13 @@ kind: Ingress
 metadata:
   name: vpro-ingress
   annotations:
-    nginx.ingress.kubernetes.io/use-regx: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressclassName: nginx
+  ingressClassName: nginx
   rules:
   - host: vprofileapp.hkhinfo.select
     http:
-      paths:  
+      paths:
       - path: /
         pathType: Prefix
         backend:
@@ -17,3 +17,5 @@ spec:
             name: vproapp-service
             port:
               number: 8080
+
+
