@@ -5,9 +5,12 @@ metadata:
   labels:
     app: vprodb
 spec:
+  capacity:
+    storage: 3Gi
   accessModes:
     - ReadWriteOnce
-  resources:
-    requests:
-      storage: 3Gi
-  storageClassName: default    
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: default
+  hostPath:
+    path: /mnt/data
+
